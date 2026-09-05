@@ -1,0 +1,8 @@
+flowchart LR
+    Compose[Docker Compose] --> WebUI[Open WebUI]
+    Compose --> Ollama[Ollama]
+    Compose --> VLLM[vLLM profile]
+    Ollama --> Models[(Ollama Models)]
+    WebUI --> Data[(Chat Data)]
+    VLLM --> Cache[(Model Cache)]
+

@@ -1,0 +1,11 @@
+flowchart TB
+    User[Users] --> CF[Cloudflare] --> Proxy[Reverse Proxy]
+    Proxy --> WebUI[Open WebUI]
+    Proxy --> API[OpenAI-compatible API]
+    WebUI --> Ollama[Ollama] --> GPTOSS[GPT-OSS-20B]
+    API --> Ollama
+    API --> VLLM[vLLM] --> GPTOSS
+    WebUI --> VectorDB[Vector Store] --> Docs[Document Storage]
+    API --> VectorDB
+    API --> Tools[Tool Calling Layer]
+

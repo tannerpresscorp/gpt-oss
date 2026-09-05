@@ -1,0 +1,9 @@
+flowchart LR
+    Dev[Developer] --> Branch[Feature Branch] --> PR[Pull Request] --> Actions[GitHub Actions]
+    Actions --> Test[Validation]
+    Actions --> Build[Docker Build]
+    Actions --> Security[Security Scan]
+    Test --> Publish[Container Registry] --> Deploy[Deployment]
+    Build --> Publish
+    Security --> Publish
+

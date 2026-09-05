@@ -1,0 +1,4 @@
+flowchart LR
+    Raw[Training Data] --> Prep[Dataset Preparation] --> Tokenizer[OpenAI Tokenizer]
+    Tokenizer --> LitGPT[LitGPT Training] --> Checkpoints[Checkpoints] --> Eval[Evaluation] --> Models[14M-100M Models]
+

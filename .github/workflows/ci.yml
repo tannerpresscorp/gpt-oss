@@ -1,4 +1,4 @@
-name: CI
+name: Validate
 
 on:
   push:
@@ -8,18 +8,27 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: windows-2019
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
+      - name: Validate Compose configuration
+        env:
+          WEBUI_SECRET_KEY: ci-validation-secret-not-for-production
+        run: |
+          docker compose config --quiet
 
-      - name: Install dependencies
-        run: npm install
+      - name: Check documentation
+        uses: DavidAnson/markdownlint-cli2-action@v20
+        with:
+          globs: |
+            README.md
+            docs/**/*.md
+
+      - name: Check workflow security
+        uses: zizmorcore/zizmor-action@v0.1.3

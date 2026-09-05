@@ -1,0 +1,6 @@
+flowchart LR
+    Base[GPT-OSS Base Model] --> QLoRA[QLoRA Training] --> Tuned[Tuned Assistant]
+    Dataset[SFT Dataset] --> QLoRA
+    Tuned --> Benchmark[Benchmarking]
+    Tuned --> GGUF[GGUF Export]
+
