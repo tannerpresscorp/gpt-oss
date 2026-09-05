@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+backups/
+data/
+models/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+node_modules/
+npm-debug.log*
+

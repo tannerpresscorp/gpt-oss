@@ -1,0 +1,5 @@
+services:
+  ollama:
+    environment:
+      OLLAMA_ORIGINS: ${OLLAMA_ORIGINS:-http://localhost:${OPEN_WEBUI_PORT:-3000}}
+

@@ -1,0 +1,7 @@
+# Opt in with: docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
+services:
+  ollama:
+    gpus: all
+  vllm:
+    gpus: all
+
