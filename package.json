@@ -9,6 +9,7 @@
     "build:cli": "tsup cli/cli.ts --format esm --platform node --out-dir dist-cli --clean",
     "preview": "vite preview",
     "test": "vitest run",
+    "docs:check": "node scripts/validate-docs.mjs",
     "typecheck": "tsc -b",
     "mcp": "tsx mcp/server.ts",
     "deploy": "npm run build && wrangler deploy",

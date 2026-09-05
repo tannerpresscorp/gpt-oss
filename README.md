@@ -155,3 +155,13 @@ docker compose --env-file .env.example -f docker-compose.yml -f docker-compose.g
 ```
 
 See [architecture diagrams](docs/architecture/README.md) and [SPEC.md](SPEC.md).
+
+## GitBook documentation
+
+The repository root is configured as a GitBook source through `.gitbook.yaml` and `SUMMARY.md`. GitHub Actions validates the navigation and local Markdown links on pull requests and on pushes to `main`:
+
+```bash
+npm run docs:check
+```
+
+To publish, connect a GitBook organization and space, enable Git Sync for `tannerpresscorp/gpt-oss`, and select `main`. GitBook will then synchronize reviewed documentation after the pull request is merged.
