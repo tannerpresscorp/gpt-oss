@@ -1,0 +1,43 @@
+{
+  "name": "@tannerpress/gpt-oss",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build && npm run build:cli",
+    "build:cli": "tsup cli/cli.ts --format esm --platform node --out-dir dist-cli --clean",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "docs:check": "node scripts/validate-docs.mjs",
+    "typecheck": "tsc -b",
+    "mcp": "tsx mcp/server.ts",
+    "deploy": "npm run build && wrangler deploy",
+    "cf:whoami": "wrangler whoami"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.4",
+    "commander": "^14.0.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260903.1",
+    "@types/node": "^22.18.1",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^4.6.0",
+    "tsx": "^4.20.5",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4",
+    "vitest": "^3.2.4",
+    "wrangler": "^4.33.1"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "bin": { "gpt-oss": "dist-cli/cli.js" }
+}
